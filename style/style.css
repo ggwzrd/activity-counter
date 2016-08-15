@@ -1,0 +1,58 @@
+body{
+	background: black;
+	font-family: 'Avenir', 'Alvetica';
+	font-size: 18px;
+	margin: 0 auto;
+	position:relative;
+	padding: 0;
+	z-index: -1;
+}
+ul{
+	list-style: none;
+}
+li{
+
+}
+.navbar{
+	width: 150px;
+	height: 100%;
+	background: #7A0000;
+	left: -300px;
+	position: fixed;
+	padding: 5%;
+	transition: 0.2s;
+	z-index: 0;
+}
+.nav-open{
+	left:0px;
+}
+.icon-menu{
+	margin: 30px;
+	position: fixed;
+	width: 25px;
+	height: auto;
+	z-index: 1;
+}
+.upline{
+	width: 25px;
+	height: 2px;
+	background: white;
+	margin-bottom: 5px;
+	left: 0px;
+	transition: 0.2s;
+}
+.downline{
+	width: 25px;
+	height: 2px;
+	background: white;
+	left: 0px;
+	transition: 0.2s;
+}
+.rotate{
+	transform: rotate(45deg);
+	margin-bottom: -2px;
+}
+.rev-rotate{
+	transform: rotate(-45deg);
+}
+
