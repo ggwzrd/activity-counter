@@ -89,11 +89,10 @@ var main = function (){
 
   $(window).scroll(function(){
     var scroll = $(window).scrollTop();
-    console.log(($('.navbar-top')[0] === undefined));
     if(scroll>=150){
       if((!isMobile.any())&&(($('.navbar-top')[0] === undefined))){
         $('.navbar').fadeOut(10);
-        $('.navbar').addClass('navbar-top');
+        $('.navbar').addClass('navbar-top nav-open');
         $('.icon-menu').fadeOut(100);
         setTimeout(function () {
           $('.col-nav').addClass('col-nav-top');
@@ -105,9 +104,11 @@ var main = function (){
     }else if(($('.navbar-top')[0] !== undefined)){
       $('.navbar').fadeOut(10);
       $('.nav-list').fadeOut(10);
-      $('.icon-menu').fadeIn(100);
+      $('.icon-menu').removeClass('no-border-shadow').fadeIn(100);
+      $('.upline').removeClass('rotate');
+  		$('.downline').removeClass('rev-rotate');
       setTimeout(function () {
-        $('.navbar').removeClass('navbar-top');
+        $('.navbar').removeClass('navbar-top nav-open');
         $('.col-nav').removeClass('col-nav-top');
         $('.nav-list').removeClass('nav-list-top');
         $('.nav-list').find('li').removeClass('list-element-top');
@@ -117,6 +118,7 @@ var main = function (){
 
     }
   });
+  
   var waypoint = new Waypoint({
   element: $('.statistics'),
   handler: function(){
