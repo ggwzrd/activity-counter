@@ -1,88 +1,53 @@
 <!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href='style/style.css' >
-	<title>Activity Counter</title>
-	<div class = 'icon-menu'>
-		<div class = 'upline'></div>
-		<div class = 'downline'></div>
-	</div>
-	<div class ='navbar'>
-		<ul class = "nav-list">
-			<li>Home</li>
-			<li>Statistics</li>
-			<li>History</li>
-		</ul>
-	</div>
-	<div class = "contaier add-activities">
-		<div class='running'></div>
-		<div class='gym'></div>
-		<div class = "activities">
-				<div class="close">CANCEL</div> 
-				<h1> Distance </h1> <h1 style="float: right;"> Time </h1> 
-				<select size="9">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-				</select>
-				<p>.</p>
-				<select size="9">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-				</select>
-
-				<p>km</p>
-
-				
-				<select size="9" style="float: right">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-				</select>
-				<p style="float : right">s</p>
-				<p style="float : right">.</p>
-				<select size="9" style="float: right">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-				</select>
-
-				<p style="float : right">m</p>
-				<span></span>
-				<input type="submit" name="add" value="ADD ACTIVITY">
-
-		</div>
-	</div>
+	<title>Activity Tracker | GOact</title>
+	<link rel="stylesheet" type="text/css" href="app/view/assets/stylesheets/main.css" >
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
+	<script src="https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js" type="text/plain"></script>
+	<script src="app/view/assets/javascript/rotate.js" type="text/javascript"></script>
+	<script src="app/view/assets/javascript/app.js" type="text/javascript"></script>
+	<script src="app/view/assets/javascript/canvasjs.min.js" type="text/javascript"></script>
+	<script src="app/view/assets/javascript/jquery.waypoints.min.js" type="text/javascript"></script>
 </head>
 <body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" type="text/javascript"></script>
-<script src="https://raw.githubusercontent.com/wilq32/jqueryrotate/master/jQueryRotate.js" type="text/plain"></script>
-<script src="config/rotate.js" type="text/javascript"></script>
-<script src="config/app.js" type="text/javascript"></script>
+		<div class= "col-12 container wrapper-alert">
+			<h1>Ops... <br /> Turn your screen to see the website again</h1>
+		</div>
+		<title>Activity Counter</title>
+		<div class = "icon-menu">
+			<div class = "upline"></div>
+			<div class = "downline"></div>
+		</div>
+		<div class ="col-nav navbar">
+			<ul class = "col-3 nav-list">
+				<li name="add-activities">Add activity</li>
+				<li name = "statistics">Statistics</li>
+				<li name = "history">History</li>
+				<span></span>
+			</ul>
+		</div>
+
+		<div class = "col-12 contaier add-activities" id = "add-activities">
+			<div class="col-9 column-right container">
+				<div class="running"></div>
+				<div class="gym"></div>
+				<div class = "col-7 activities"></div>
+			</div>
+		</div>
+		<div class = "col-12 container statistics" id = "statistics">
+			<div class="col-9 column-right container">
+				<div class="col-11 graph container">
+      		<div id="chartContainer" style="height: 500px; width: 100%;">
+	     		</div>
+    		</div>
+			</div>
+		</div>
+		<div class = "col-12 container history" id = "history">
+			<div class="col-9 column-right container">
+
+			</div>
+		</div>
 </body>
 </html>
