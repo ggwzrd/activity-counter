@@ -118,14 +118,14 @@ var main = function (){
 
     }
   });
-  
+
   var waypoint = new Waypoint({
   element: $('.statistics'),
   handler: function(){
   		var chart = new CanvasJS.Chart("chartContainer",
   		{
   			title: {
-  				text: "Your Activity improvement"
+  				text: ""
   			},
                           animationEnabled: true,
   			axisX:{
@@ -253,7 +253,7 @@ var createActivity = function (type){
   	$('<div>').addClass('content').appendTo('.activities');
 
 		if(type == 'running'){
-			$('<div>').addClass('container distance').appendTo($('.content'));
+			$('<div>').addClass('container distance').appendTo('.activities').find($('.content'));
 			$('<h1>').text('Distance').appendTo('.distance');
 
 			var select = $('<select size = "19">').append(createOptions(20));
@@ -263,7 +263,7 @@ var createActivity = function (type){
 			select.appendTo($('.distance'));
 			$('<p>').text('km').appendTo($('.distance'));
 
-			$('<div>').addClass('container duration').appendTo($('.content'));
+			$('<div>').addClass('container duration').appendTo('.activities').find($('.content'));
 			$('<h1>').text('Duration').appendTo($('.duration'));
 			select = $('<select size = "239">').append(createOptions(240));
 			select.appendTo($('.duration'));
@@ -273,19 +273,19 @@ var createActivity = function (type){
 			select.appendTo($('.duration'));
 			$('<p>').text('s').appendTo($('.duration'));
 
-			$('<span>').appendTo($('.content'));
+			$('<span>').appendTo('.activities').find($('.content'));
 		}else if(type == 'gym'){
 
-			$('<div>').addClass('container exercise col-12').appendTo($('.content'));
+			$('<div>').addClass('container exercise col-12').appendTo('.activities').find($('.content'));
 			$('<h1>').text('Excercise').appendTo('.exercise');
 			$('<input type ="text" placeholder = "Push ups">').appendTo('.exercise');
 			$('<input type ="submit" value="+" onClick = "javascript: addExecise()">').addClass('round-button').appendTo('.exercise');
 
-			$('<div>').addClass('container series').appendTo('.content');
+			$('<div>').addClass('container series').appendTo('.activities').find('.content');
 			$('<h1>').text('Series').appendTo('.series');
 			$('<select size = "9">').append(createOptions(10)).appendTo($(".series"));
 
-			$('<div>').addClass('container reps').appendTo('.content');
+			$('<div>').addClass('container reps').appendTo('.activities').find('.content');
 			$('<h1>').text('Reps').appendTo('.reps');
 			$('<select size = "19">').append(createOptions(50)).appendTo($(".reps"));
 			$('<div>').addClass('col-12 container schedule').appendTo('.activities').append($('<ul>').addClass('col-12'));
