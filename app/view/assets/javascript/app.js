@@ -117,63 +117,95 @@ var main = function (){
       }, 200);
 
     }
+    console.log($('.canvasjs-chart-canvas').length);
   });
 
   var waypoint = new Waypoint({
   element: $('.statistics'),
   handler: function(){
-  		var chart = new CanvasJS.Chart("chartContainer",
-  		{
-  			title: {
-  				text: ""
-  			},
-                          animationEnabled: true,
-  			axisX:{
-  				valueFormatString: "DD-MMM" ,
-  				interval: 10,
-  				intervalType: "day",
-  				labelAngle: -50,
-  				labelFontColor: "#7A0000",
-  				minimum: new Date(2012,06,10)
-  			},
-  			axisY: {
-  				title: "Distance",
-  				interlacedColor: "#7A0000",
-  				tickColor: "#CCC",
-  				titleFontColor: "#7A0000",
-  				valueFormatString: "#km,,.",
-  				interval: 10
-  			},
-  			data: [
-  			{
-  				indexLabelFontColor: "black",
-  				name: 'views',
-  				type: "area",
-  				color: "rgba(0,0,0,0.7)",
-  				markerSize:8,
-  				dataPoints: [
-  				{ x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
-  				{ x: new Date(2012, 06, 18), y: 0.5 },
-  				{ x: new Date(2012, 06, 23), y: 1, indexLabel:"1km" },
-  				{ x: new Date(2012, 07, 1), y: 1.5},
-  				{ x: new Date(2012, 07, 11), y: 2 },
-  				{ x: new Date(2012, 07, 23), y: 3, indexLabel:"3km"},
-  				{ x: new Date(2012, 07, 31), y: 3.5  },
-  				{ x: new Date(2012, 08, 04), y: 3},
-  				{ x: new Date(2012, 08, 10), y: 3 },
-  				{ x: new Date(2012, 08, 13), y: 3},
-  				{ x: new Date(2012, 08, 16), y: 3},
-  				{ x: new Date(2012, 08, 18), y: 4, indexLabel:"4km"},
-  				{ x: new Date(2012, 08, 21), y: 4.5},
-  				{ x: new Date(2012, 08, 24), y: 5, indexLabel:"5km"},
-  				{ x: new Date(2012, 08, 26), y: 5.5},
-  				{ x: new Date(2012, 08, 28), y: 6, indexLabel:"6km"}
-  				]
-  			}
+    if(($('.canvasjs-chart-canvas').length === 0)||(!isMobile.any())){
+    		var chart = new CanvasJS.Chart("chartContainer",
+    		{
+    			title: {
+    				text: ""
+    			},
+                            animationEnabled: true,
+    			axisX:{
+    				valueFormatString: "DD-MMM" ,
+    				interval: 10,
+    				intervalType: "day",
+    				labelAngle: -50,
+    				labelFontColor: "#7A0000",
+    				minimum: new Date(2012,06,10)
+    			},
+    			axisY: {
+    				title: "Distance",
+    				interlacedColor: "#7A0000",
+    				tickColor: "#CCC",
+    				titleFontColor: "#7A0000",
+    				valueFormatString: "#km,,.",
+    				interval: 10
+    			},
+    			data: [
+    			{
+    				indexLabelFontColor: "black",
+    				name: 'views',
+    				type: "area",
+    				color: "rgba(0,0,0,0.7)",
+    				markerSize:8,
+    				dataPoints: [
+    				{ x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
+    				{ x: new Date(2012, 06, 18), y: 0.5 },
+    				{ x: new Date(2012, 06, 23), y: 1, indexLabel:"1km" },
+    				{ x: new Date(2012, 07, 1), y: 1.5},
+    				{ x: new Date(2012, 07, 11), y: 2 },
+    				{ x: new Date(2012, 07, 23), y: 3, indexLabel:"3km"},
+    				{ x: new Date(2012, 07, 31), y: 3.5  },
+    				{ x: new Date(2012, 08, 04), y: 3},
+    				{ x: new Date(2012, 08, 10), y: 3 },
+    				{ x: new Date(2012, 08, 13), y: 3},
+    				{ x: new Date(2012, 08, 16), y: 3},
+    				{ x: new Date(2012, 08, 18), y: 4, indexLabel:"4km"},
+    				{ x: new Date(2012, 08, 21), y: 4.5},
+    				{ x: new Date(2012, 08, 24), y: 5, indexLabel:"5km"},
+    				{ x: new Date(2012, 08, 26), y: 5.5},
+    				{ x: new Date(2012, 08, 28), y: 6, indexLabel:"6km"}
+    				]
+    			}
+        ],
 
-  			]
-  		});
-      chart.render();
+          data2: [
+    			{
+    				indexLabelFontColor: "black",
+    				name: 'views',
+    				type: "area",
+    				color: "green",
+    				markerSize:8,
+    				dataPoints: [
+    				{ x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
+    				{ x: new Date(2012, 06, 18), y: 3 },
+    				{ x: new Date(2012, 06, 23), y:3, indexLabel:"1km" },
+    				{ x: new Date(2012, 07, 1), y: 13},
+    				{ x: new Date(2012, 07, 11), y:3 },
+    				{ x: new Date(2012, 07, 23), y:3, indexLabel:"3km"},
+    				{ x: new Date(2012, 07, 31), y: 3 },
+    				{ x: new Date(2012, 08, 04), y:3},
+    				{ x: new Date(2012, 08, 10), y:3 },
+    				{ x: new Date(2012, 08, 13), y:3},
+    				{ x: new Date(2012, 08, 16), y:3},
+    				{ x: new Date(2012, 08, 18), y:3, indexLabel:"4km"},
+    				{ x: new Date(2012, 08, 21), y: 4},
+    				{ x: new Date(2012, 08, 24), y:3, indexLabel:"5km"},
+    				{ x: new Date(2012, 08, 26), y: 5},
+    				{ x: new Date(2012, 08, 28), y:3, indexLabel:"6km"}
+    				]
+    			}
+
+    			]
+    		});
+
+        chart.render();
+      }
     }
 });
 
