@@ -174,7 +174,7 @@ a{
 	@media only screen and (orientation:landscape){
 		.wrapper-alert{
 			z-index: 100;
-			position: absolute;
+			position: fixed;
 			background: rgba(0,0,0, 0.8);
 			display: block;
 			visibility: visible;
@@ -217,7 +217,7 @@ a{
 	border-bottom: 1px solid white;
 }
 .nav-list li:hover{
-	box-shadow: 2px 2px 10px black;
+	transform: scale(1.1);
 	cursor: pointer;
 }
 .nav-open{
@@ -281,10 +281,28 @@ a{
   text-align: center;
   margin-left: 65px;
   display: inline-block;
-  width: 25% !important;
+  width: 27% !important;
   padding: 12px !important;
   height: 50px;
   border: 0 !important;
+}
+@media only screen and (max-width: 780px) {
+    /* For mobile phones: */
+
+    .list-element-top{
+      height: 100%;
+      margin: auto;
+      display: inline-block;
+      padding: 0 !important;
+    }
+    @media only screen and (min-width: 460px){
+      .nav-list-top{
+        width: 75% !important;
+        display: block;
+        margin: auto;
+        float: none !important;
+      }
+    }
 }
 /* END */
 

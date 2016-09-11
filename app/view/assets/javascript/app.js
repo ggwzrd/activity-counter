@@ -25,6 +25,13 @@ var isMobile = {
 var main = function (){
 
 	// icon menu animation
+  if(isMobile.any()){
+    $('.navbar').addClass('nav-open navbar-top');
+    $('.icon-menu').fadeOut(100);
+    $('.col-nav').addClass('col-nav-top');
+    $('.nav-list').addClass('nav-list-top');
+    $('.nav-list').find('li').addClass('list-element-top');
+  }
 
 	$('.icon-menu').click(function(){
 		$('.upline').toggleClass('rotate');
@@ -101,7 +108,7 @@ var main = function (){
         }, 200);
         $('.navbar').fadeIn(10);
       }
-    }else if(($('.navbar-top')[0] !== undefined)){
+    }else if(($('.navbar-top')[0] !== undefined)&&(!isMobile.any())){
       $('.navbar').fadeOut(10);
       $('.nav-list').fadeOut(10);
       $('.icon-menu').removeClass('no-border-shadow').fadeIn(100);
@@ -123,7 +130,7 @@ var main = function (){
   var waypoint = new Waypoint({
   element: $('.statistics'),
   handler: function(){
-    if(($('.canvasjs-chart-canvas').length === 0)||(!isMobile.any())){
+    if(($('.canvasjs-chart-canvas').length === 0)||(isMobile.any())){
     		var chart = new CanvasJS.Chart("chartContainer",
     		{
     			title: {
