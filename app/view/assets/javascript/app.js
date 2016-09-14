@@ -263,26 +263,26 @@ var createChart = function(){
                         interval: 10,
                         intervalType: "day",
                         labelAngle: -50,
-                        labelFontColor: "#7A0000",
+                        labelFontColor: "#858585",
                         minimum: new Date(2012,06,10)
                     },
                     axisY: {
-                        title: "Distance",
-                        interlacedColor: "#7A0000",
+                        title: "",
+                        interlacedColor: "white",
                         tickColor: "#CCC",
                         titleFontColor: "#7A0000",
-                        valueFormatString: "#km,,.",
-                        interval: 10
+                        valueFormatString: "#km",
+                        interval: 1
                     },
                     data: [
                     {
                         indexLabelFontColor: "black",
                         name: 'views',
                         type: "area",
-                        color: "rgba(0,0,0,0.7)",
+                        color: "rgba(45,0,0,0.7)",
                         markerSize:8,
                         dataPoints: [
-                        { x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
+                        { x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "red", markerColor: "orangered"},
                         { x: new Date(2012, 06, 18), y: 0.5 },
                         { x: new Date(2012, 06, 23), y: 1, indexLabel:"1km" },
                         { x: new Date(2012, 07, 1), y: 1.5},

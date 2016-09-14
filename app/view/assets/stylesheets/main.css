@@ -65,6 +65,7 @@ li{
 
 }
 input{
+	font-family: 'Fjalla One', sans-serif;
 	border-color: black;
 	border-radius: 5px;
 	height: auto;
