@@ -7,7 +7,7 @@ body{
 	width: 100%;
 	height: auto;
 	background:#CCC;
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	color: white;
 	font-size: 18px;
 	margin: auto;
@@ -16,7 +16,7 @@ body{
   overflow: scroll;
 }
 h1 {
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 24px;
 	font-style: normal;
 	font-variant: normal;
@@ -24,7 +24,7 @@ h1 {
 	line-height: 26.4px;
 }
 h3 {
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -32,7 +32,7 @@ h3 {
 	line-height: 15.4px;
 }
 p {
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
@@ -40,7 +40,7 @@ p {
 	line-height: 20px;
 }
 blockquote {
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 21px;
 	font-style: normal;
 	font-variant: normal;
@@ -48,7 +48,7 @@ blockquote {
 	line-height: 30px;
 }
 pre {
-	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 	font-size: 13px;
 	font-style: normal;
 	font-variant: normal;

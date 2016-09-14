@@ -127,95 +127,7 @@ var main = function (){
     console.log($('.canvasjs-chart-canvas').length);
   });
 
-  var waypoint = new Waypoint({
-  element: $('.statistics'),
-  handler: function(){
-    if(($('.canvasjs-chart-canvas').length === 0)||(isMobile.any())){
-    		var chart = new CanvasJS.Chart("chartContainer",
-    		{
-    			title: {
-    				text: ""
-    			},
-                            animationEnabled: true,
-    			axisX:{
-    				valueFormatString: "DD-MMM" ,
-    				interval: 10,
-    				intervalType: "day",
-    				labelAngle: -50,
-    				labelFontColor: "#7A0000",
-    				minimum: new Date(2012,06,10)
-    			},
-    			axisY: {
-    				title: "Distance",
-    				interlacedColor: "#7A0000",
-    				tickColor: "#CCC",
-    				titleFontColor: "#7A0000",
-    				valueFormatString: "#km,,.",
-    				interval: 10
-    			},
-    			data: [
-    			{
-    				indexLabelFontColor: "black",
-    				name: 'views',
-    				type: "area",
-    				color: "rgba(0,0,0,0.7)",
-    				markerSize:8,
-    				dataPoints: [
-    				{ x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
-    				{ x: new Date(2012, 06, 18), y: 0.5 },
-    				{ x: new Date(2012, 06, 23), y: 1, indexLabel:"1km" },
-    				{ x: new Date(2012, 07, 1), y: 1.5},
-    				{ x: new Date(2012, 07, 11), y: 2 },
-    				{ x: new Date(2012, 07, 23), y: 3, indexLabel:"3km"},
-    				{ x: new Date(2012, 07, 31), y: 3.5  },
-    				{ x: new Date(2012, 08, 04), y: 3},
-    				{ x: new Date(2012, 08, 10), y: 3 },
-    				{ x: new Date(2012, 08, 13), y: 3},
-    				{ x: new Date(2012, 08, 16), y: 3},
-    				{ x: new Date(2012, 08, 18), y: 4, indexLabel:"4km"},
-    				{ x: new Date(2012, 08, 21), y: 4.5},
-    				{ x: new Date(2012, 08, 24), y: 5, indexLabel:"5km"},
-    				{ x: new Date(2012, 08, 26), y: 5.5},
-    				{ x: new Date(2012, 08, 28), y: 6, indexLabel:"6km"}
-    				]
-    			}
-        ],
-
-          data2: [
-    			{
-    				indexLabelFontColor: "black",
-    				name: 'views',
-    				type: "area",
-    				color: "green",
-    				markerSize:8,
-    				dataPoints: [
-    				{ x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
-    				{ x: new Date(2012, 06, 18), y: 3 },
-    				{ x: new Date(2012, 06, 23), y:3, indexLabel:"1km" },
-    				{ x: new Date(2012, 07, 1), y: 13},
-    				{ x: new Date(2012, 07, 11), y:3 },
-    				{ x: new Date(2012, 07, 23), y:3, indexLabel:"3km"},
-    				{ x: new Date(2012, 07, 31), y: 3 },
-    				{ x: new Date(2012, 08, 04), y:3},
-    				{ x: new Date(2012, 08, 10), y:3 },
-    				{ x: new Date(2012, 08, 13), y:3},
-    				{ x: new Date(2012, 08, 16), y:3},
-    				{ x: new Date(2012, 08, 18), y:3, indexLabel:"4km"},
-    				{ x: new Date(2012, 08, 21), y: 4},
-    				{ x: new Date(2012, 08, 24), y:3, indexLabel:"5km"},
-    				{ x: new Date(2012, 08, 26), y: 5},
-    				{ x: new Date(2012, 08, 28), y:3, indexLabel:"6km"}
-    				]
-    			}
-
-    			]
-    		});
-
-        chart.render();
-      }
-    }
-});
-
+  createChart();
 };
 
 $(document).ready(main);
@@ -245,6 +157,7 @@ var createOptions = function(n){
 
 var checkValidityOf = function(object){
 	var validity = true;
+    console.log("ciao");
 	$.map(object.children, function(o){
 		if(validity !== false){
 			switch (o.type){
@@ -265,7 +178,7 @@ var checkValidityOf = function(object){
 
 var addExecise = function(){
 	var approved = true;
-	$('.content').children().each(function(){
+	$('.activities').children().each(function(){
 		if(approved !== false){
 			checkValidityOf(this) ? approved = true : approved = false;
 		}else{
@@ -289,10 +202,9 @@ var createActivity = function (type){
   	$('<div onClick = "javascript: closeActivity(\''+type+'\')">').text('CANCEL').addClass('close').appendTo($('.activities'));
   	$('<span>').appendTo($('.activities'));
   	$('<div>').addClass('error').appendTo('.activities');
-  	$('<div>').addClass('content').appendTo('.activities');
 
 		if(type == 'running'){
-			$('<div>').addClass('container distance').appendTo('.activities').find($('.content'));
+			$('<div>').addClass('container distance').appendTo('.activities');
 			$('<h1>').text('Distance').appendTo('.distance');
 
 			var select = $('<select size = "19">').append(createOptions(20));
@@ -315,7 +227,7 @@ var createActivity = function (type){
 			$('<span>').appendTo('.activities').find($('.content'));
 		}else if(type == 'gym'){
 
-			$('<div>').addClass('container exercise col-12').appendTo('.activities').find($('.content'));
+			$('<div>').addClass('container exercise col-12').appendTo('.activities');
 			$('<h1>').text('Excercise').appendTo('.exercise');
 			$('<input type ="text" placeholder = "Push ups">').appendTo('.exercise');
 			$('<input type ="submit" value="+" onClick = "javascript: addExecise()">').addClass('round-button').appendTo('.exercise');
@@ -333,4 +245,94 @@ var createActivity = function (type){
 		}
 		$('<input type = "submit" onClick = "javascript: saveActivity(\''+type+'\')" name = "add" value = "SAVE">').appendTo($('.activities'));
 	}
+};
+
+var createChart = function(){
+    var waypoint = new Waypoint({
+      element: $('.statistics'),
+      handler: function(){
+        if(($('.canvasjs-chart-canvas').length === 0)||(isMobile.any())){
+                var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    title: {
+                        text: ""
+                    },
+                                animationEnabled: true,
+                    axisX:{
+                        valueFormatString: "DD-MMM" ,
+                        interval: 10,
+                        intervalType: "day",
+                        labelAngle: -50,
+                        labelFontColor: "#7A0000",
+                        minimum: new Date(2012,06,10)
+                    },
+                    axisY: {
+                        title: "Distance",
+                        interlacedColor: "#7A0000",
+                        tickColor: "#CCC",
+                        titleFontColor: "#7A0000",
+                        valueFormatString: "#km,,.",
+                        interval: 10
+                    },
+                    data: [
+                    {
+                        indexLabelFontColor: "black",
+                        name: 'views',
+                        type: "area",
+                        color: "rgba(0,0,0,0.7)",
+                        markerSize:8,
+                        dataPoints: [
+                        { x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
+                        { x: new Date(2012, 06, 18), y: 0.5 },
+                        { x: new Date(2012, 06, 23), y: 1, indexLabel:"1km" },
+                        { x: new Date(2012, 07, 1), y: 1.5},
+                        { x: new Date(2012, 07, 11), y: 2 },
+                        { x: new Date(2012, 07, 23), y: 3, indexLabel:"3km"},
+                        { x: new Date(2012, 07, 31), y: 3.5  },
+                        { x: new Date(2012, 08, 04), y: 3},
+                        { x: new Date(2012, 08, 10), y: 3 },
+                        { x: new Date(2012, 08, 13), y: 3},
+                        { x: new Date(2012, 08, 16), y: 3},
+                        { x: new Date(2012, 08, 18), y: 4, indexLabel:"4km"},
+                        { x: new Date(2012, 08, 21), y: 4.5},
+                        { x: new Date(2012, 08, 24), y: 5, indexLabel:"5km"},
+                        { x: new Date(2012, 08, 26), y: 5.5},
+                        { x: new Date(2012, 08, 28), y: 6, indexLabel:"6km"}
+                        ]
+                    }
+            ],
+
+              data2: [
+                    {
+                        indexLabelFontColor: "black",
+                        name: 'views',
+                        type: "area",
+                        color: "green",
+                        markerSize:8,
+                        dataPoints: [
+                        { x: new Date(2012, 06, 15), y: 0,  indexLabel: "Registration date", indexLabelOrientation: "vertical", indexLabelFontColor: "orangered", markerColor: "orangered"},
+                        { x: new Date(2012, 06, 18), y: 3 },
+                        { x: new Date(2012, 06, 23), y:3, indexLabel:"1km" },
+                        { x: new Date(2012, 07, 1), y: 13},
+                        { x: new Date(2012, 07, 11), y:3 },
+                        { x: new Date(2012, 07, 23), y:3, indexLabel:"3km"},
+                        { x: new Date(2012, 07, 31), y: 3 },
+                        { x: new Date(2012, 08, 04), y:3},
+                        { x: new Date(2012, 08, 10), y:3 },
+                        { x: new Date(2012, 08, 13), y:3},
+                        { x: new Date(2012, 08, 16), y:3},
+                        { x: new Date(2012, 08, 18), y:3, indexLabel:"4km"},
+                        { x: new Date(2012, 08, 21), y: 4},
+                        { x: new Date(2012, 08, 24), y:3, indexLabel:"5km"},
+                        { x: new Date(2012, 08, 26), y: 5},
+                        { x: new Date(2012, 08, 28), y:3, indexLabel:"6km"}
+                        ]
+                    }
+                     ]
+                });
+
+                chart.render();
+            }
+        }
+    });
 };
