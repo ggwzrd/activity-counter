@@ -40,7 +40,7 @@ var main = function (){
     $('.icon-menu').toggleClass('no-border-shadow');
 	});
 
-  $('.nav-list').click(function(e){
+  $('#nav-lis').click(function(e){
     var destination = $('#' + $(e.target).attr('name'));
     $('html, body').animate({
         scrollTop: $(destination).offset().top
