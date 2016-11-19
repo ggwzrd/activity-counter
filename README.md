@@ -22,4 +22,6 @@ With this website I also wanted to practice my Design skills. Each and every ico
 # Get Started
 
 1. Install [npm](https://www.npmjs.com/) and [http-server](https://www.npmjs.com/package/http-server)
-2. ```  node bin/http-server ```
+2. ``` cd myapp/ ```
+3. ``` jitsu install http-server ```
+4. ```  node bin/http-server ```
