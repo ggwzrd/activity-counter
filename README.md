@@ -1,4 +1,4 @@
-# Activity Counter
+# [Activity Counter](http://activitytracker.bitballoon.com/)
 
 <img src="https://s3.amazonaws.com/poly-screenshots.angel.co/Project/d7/415712/294344fdfdbd4166b0bb9d38bf3f107b-original.png" width="600" />
 
